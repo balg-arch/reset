@@ -117,13 +117,13 @@
 <body>
   <div class="wrap">
     <div class="glyph-strip" role="status" aria-label="Glyph strip">
-      <div class="gs-left"><span class="gs-mark" aria-hidden="true">⦿</span><span class="gs-title mono">RESET</span></div>
+      <div class="gs-left"><span class="gs-mark" aria-hidden="true">⊙</span><span class="gs-title mono">RESET</span></div>
       <div class="gs-meters" aria-label="Live metrics">
         <div class="gs-meter" title="Coherence"><span class="gs-tag mono">COH</span><span id="gsCoh" class="gs-bar" style="--v:0.50"></span></div>
         <div class="gs-meter" title="Tension"><span class="gs-tag mono">TEN</span><span id="gsTen" class="gs-bar" style="--v:0.20"></span></div>
         <div class="gs-meter" title="Breath amplitude"><span class="gs-tag mono">BR</span><span id="gsBr" class="gs-bar" style="--v:0.00"></span></div>
       </div>
-      <div class="gs-right"><span id="gsPhase" class="gs-phase mono">⌀</span><span id="gsClock" class="gs-clock mono">00:00</span><span id="gsRun" class="gs-run" aria-hidden="true"></span></div>
+      <div class="gs-right"><span id="gsPhase" class="gs-phase mono">#</span><span id="gsClock" class="gs-clock mono">00:00</span><span id="gsRun" class="gs-run" aria-hidden="true"></span></div>
     </div>
 
     <section class="panel" aria-label="Glyph Reset Drill">
@@ -139,7 +139,7 @@
             <button id="btnStart" class="btn primary" type="button">Start</button>
             <button id="btnStop" class="btn danger" type="button">Stop</button>
             <button id="btnFullscreen" class="btn" type="button">Fullscreen</button>
-            <span class="pill mono" id="status" data-kind="idle">⌀ (silence)</span>
+            <span class="pill mono" id="status" data-kind="idle"># (silence)</span>
           </div>
 
           <div class="sep"></div>
@@ -148,9 +148,9 @@
           <div class="row">
             <label for="sessionGoal">Reset type</label>
             <select id="sessionGoal">
-              <option value="rebalance" selected>Rebalance (▢ ⟶ ⦿)</option>
-              <option value="focus">Focus (△ ⟶ ■)</option>
-              <option value="calm">Calm (⌀ ⟶ ⟲)</option>
+              <option value="rebalance" selected>Rebalance (⊡ → ⊙)</option>
+              <option value="focus">Focus (▲ → ■)</option>
+              <option value="calm">Calm (# → ↻)</option>
             </select>
           </div>
 
@@ -181,7 +181,7 @@
                 <option value="custom">Custom</option>
               </select>
             </div>
-            <div class="row" style="margin:0;"><label for="breathRateHint">Breath hint</label><span class="pill mono" id="breathRateHint">⟶ ~6 bpm</span></div>
+            <div class="row" style="margin:0;"><label for="breathRateHint">Breath hint</label><span class="pill mono" id="breathRateHint">→ ~6 bpm</span></div>
           </div>
 
           <div class="row"><label for="inhaleSec">Inhale (sec)</label><input id="inhaleSec" type="number" min="1" max="20" step="1" value="5"/></div>
@@ -189,23 +189,23 @@
           <div class="row"><label for="exhaleSec">Exhale (sec)</label><input id="exhaleSec" type="number" min="1" max="30" step="1" value="5"/></div>
           <div class="row"><label for="hold2Sec">Hold (sec)</label><input id="hold2Sec" type="number" min="0" max="20" step="1" value="0"/></div>
 
-          <div class="row"><label for="breathStrength">Breath⟶Audio coupling (⟲)</label><input id="breathStrength" type="range" min="0" max="1" step="0.001" value="0.55"/><span class="mono" id="breathStrengthV"></span></div>
+          <div class="row"><label for="breathStrength">Breath→Audio coupling (↻)</label><input id="breathStrength" type="range" min="0" max="1" step="0.001" value="0.55"/><span class="mono" id="breathStrengthV"></span></div>
 
           <div class="sep"></div>
 
           <h2>Sound Field</h2>
-          <div class="row"><label for="intensity">Intensity (⦿)</label><input id="intensity" type="range" min="0" max="1" step="0.001" value="0.50"/><span class="mono" id="intensityV"></span></div>
-          <div class="row"><label for="brightness">Brightness (△)</label><input id="brightness" type="range" min="0" max="1" step="0.001" value="0.33"/><span class="mono" id="brightnessV"></span></div>
-          <div class="row"><label for="density">Density (▢)</label><input id="density" type="range" min="0" max="1" step="0.001" value="0.38"/><span class="mono" id="densityV"></span></div>
-          <div class="row"><label for="regen">Regeneration (⟲)</label><input id="regen" type="range" min="0" max="1" step="0.001" value="0.62"/><span class="mono" id="regenV"></span></div>
-          <div class="row"><label for="silenceBias">Silence bias (⌀)</label><input id="silenceBias" type="range" min="0" max="1" step="0.001" value="0.20"/><span class="mono" id="silenceV"></span></div>
+          <div class="row"><label for="intensity">Intensity (⊙)</label><input id="intensity" type="range" min="0" max="1" step="0.001" value="0.50"/><span class="mono" id="intensityV"></span></div>
+          <div class="row"><label for="brightness">Brightness (▲)</label><input id="brightness" type="range" min="0" max="1" step="0.001" value="0.33"/><span class="mono" id="brightnessV"></span></div>
+          <div class="row"><label for="density">Density (⊡)</label><input id="density" type="range" min="0" max="1" step="0.001" value="0.38"/><span class="mono" id="densityV"></span></div>
+          <div class="row"><label for="regen">Regeneration (↻)</label><input id="regen" type="range" min="0" max="1" step="0.001" value="0.62"/><span class="mono" id="regenV"></span></div>
+          <div class="row"><label for="silenceBias">Silence bias (#)</label><input id="silenceBias" type="range" min="0" max="1" step="0.001" value="0.20"/><span class="mono" id="silenceV"></span></div>
 
           <div class="sep"></div>
 
           <h2>Actions</h2>
           <div class="row" style="justify-content:space-between;">
-            <button id="btnNewConfig" class="btn" type="button">Generate new configuration ⟦…⟧</button>
-            <button id="btnFreeze" class="btn" type="button">Freeze (⫶)</button>
+            <button id="btnNewConfig" class="btn" type="button">Generate new configuration ⟨…⟩</button>
+            <button id="btnFreeze" class="btn" type="button">Freeze (≡)</button>
           </div>
           <p class="small">Audio starts only after your click (browser policy).</p>
         </section>
@@ -215,16 +215,16 @@
           <canvas id="field" width="1000" height="360" aria-label="Aura field monitor"></canvas>
           <div class="sep"></div>
           <div class="kvs" aria-label="Telemetry">
-            <div class="kv"><b>Breath phase ⟶</b><span class="mono" id="phase"></span></div>
-            <div class="kv"><b>Aura coherence (▢)</b><span class="mono" id="aura"></span></div>
-            <div class="kv"><b>Configuration ⟦…⟧</b><span class="mono" id="cfg"></span></div>
-            <div class="kv"><b>Session vector ⟶</b><span class="mono" id="intent"></span></div>
-            <div class="kv"><b>Memory trace (⟲)</b><span class="mono" id="mem"></span></div>
+            <div class="kv"><b>Breath phase →</b><span class="mono" id="phase"></span></div>
+            <div class="kv"><b>Aura coherence (⊡)</b><span class="mono" id="aura"></span></div>
+            <div class="kv"><b>Configuration ⟨…⟩</b><span class="mono" id="cfg"></span></div>
+            <div class="kv"><b>Session vector →</b><span class="mono" id="intent"></span></div>
+            <div class="kv"><b>Memory trace (↻)</b><span class="mono" id="mem"></span></div>
           </div>
           <div class="sep"></div>
           <h2>Guidance</h2>
-          <div class="sessionText" id="prompt" aria-label="Session prompt">⌀ (silence) — press Start.</div>
-          <p class="small">This is a coordination practice. If discomfort arises, return to ⌀ (pause), reduce intensity, or stop.</p>
+          <div class="sessionText" id="prompt" aria-label="Session prompt"># (silence) — press Start.</div>
+          <p class="small">This is a coordination practice. If discomfort arises, return to # (pause), reduce intensity, or stop.</p>
         </section>
       </div>
 
@@ -304,7 +304,7 @@
               parseInt(ui.exhaleSec.value || "0", 10) +
               parseInt(ui.hold2Sec.value || "0", 10)
             );
-            ui.breathRateHint.textContent = `⟶ ~${(60 / cycle).toFixed(1)} bpm`;
+            ui.breathRateHint.textContent = `→ ~${(60 / cycle).toFixed(1)} bpm`;
           }
 
           ["intensity", "brightness", "density", "regen", "silenceBias", "breathStrength", "inhaleSec", "hold1Sec", "exhaleSec", "hold2Sec"].forEach(k => ui[k].addEventListener("input", syncValues));
@@ -338,8 +338,8 @@
             ui.gsCoh.style.setProperty("--v", coh.toFixed(3));
             ui.gsTen.style.setProperty("--v", ten.toFixed(3));
             ui.gsBr.style.setProperty("--v", br.toFixed(3));
-            const ph = state.breath.phase || "⌀";
-            const glyph = ph === "inhale" ? "↑ IN" : ph === "exhale" ? "↓ OUT" : ph === "hold1" ? "— H1" : ph === "hold2" ? "— H2" : "⌀ OFF";
+            const ph = state.breath.phase || "#";
+            const glyph = ph === "inhale" ? "↑ IN" : ph === "exhale" ? "↓ OUT" : ph === "hold1" ? "— H1" : ph === "hold2" ? "— H2" : "# OFF";
             ui.gsPhase.textContent = glyph;
             ui.gsClock.textContent = audioRunning ? fmtMMSS(remainingSec) : "00:00";
           }
@@ -368,7 +368,7 @@
             state.breath.tPhaseStart = now;
             state.breath.phaseDur = Math.max(0.001, dur);
             const label = (name === "hold1" || name === "hold2") ? "hold" : name;
-            ui.phase.textContent = `${label} ⟶ ${dur.toFixed(0)}s`;
+            ui.phase.textContent = `${label} → ${dur.toFixed(0)}s`;
           }
 
           function stepBreath(now) {
@@ -549,7 +549,7 @@
                 tickDensity: goal === "focus" ? between(0.55, 0.95) : goal === "calm" ? between(0.0, 0.15) : between(0.18, 0.55),
                 sparkle: goal === "calm" ? between(0.10, 0.28) : goal === "focus" ? between(0.22, 0.55) : between(0.35, 0.75)
               };
-              cfg.label = `⟦ mode:${cfg.goal} root:${cfg.root} chord:[${cfg.chord.join(",")}] lp:${Math.round(cfg.lp)}Hz wet:${cfg.wet.toFixed(2)} drift:${cfg.drift.toFixed(3)} ticks:${cfg.tickDensity.toFixed(2)} sparkle:${cfg.sparkle.toFixed(2)} ⟧`;
+              cfg.label = `⟨ mode:${cfg.goal} root:${cfg.root} chord:[${cfg.chord.join(",")}] lp:${Math.round(cfg.lp)}Hz wet:${cfg.wet.toFixed(2)} drift:${cfg.drift.toFixed(3)} ticks:${cfg.tickDensity.toFixed(2)} sparkle:${cfg.sparkle.toFixed(2)} ⟩`;
               return cfg;
             }
 
@@ -840,7 +840,7 @@
             const coherence = clamp(0.55 * centered + 0.45 * calm);
             state.aura.coherenceEMA = lerp(state.aura.coherenceEMA, coherence, 0.06);
             state.aura.drift = (state.aura.drift + 0.012) % (Math.PI * 2);
-            ui.aura.textContent = `▢ ${state.aura.coherenceEMA.toFixed(3)} (⟲ calm:${calm.toFixed(2)} breath:${centered.toFixed(2)})`;
+            ui.aura.textContent = `⊡ ${state.aura.coherenceEMA.toFixed(3)} (↻ calm:${calm.toFixed(2)} breath:${centered.toFixed(2)})`;
             ui.mem.textContent = `energy:${state.memory.energyEMA.toFixed(3)} tension:${state.memory.tensionEMA.toFixed(3)}`;
           }
 
@@ -848,23 +848,23 @@
             const total = Math.max(2, Math.min(90, minutes | 0)) * 60;
             const templates = {
               rebalance: [
-                { dur: 60, tag: "⦿ ⟶ △", ax: "Ax 2.1", txt: "Notice fragments. Do not fix them. Let breath be the only vector." },
-                { dur: 120, tag: "△ ⟲", ax: "Ax 24.2", txt: "Each exhale is ⌀. Each inhale is ⟲. Let the pause reorganize." },
-                { dur: 180, tag: "▢", ax: "Ax 2.3", txt: "Sense connection: body ↔ mind ↔ space. Reduce force; increase clarity." },
-                { dur: 120, tag: "⟦…⟧", ax: "Ax 8.1", txt: "Feel options. Choose one tiny adjustment: jaw, tongue, shoulders." },
-                { dur: 120, tag: "⌀", ax: "Ax 15.1", txt: "Introduce a deliberate limit: soften sound, soften attention, keep breathing." }
+                { dur: 60, tag: "⊙ → ▲", ax: "Ax 2.1", txt: "Notice fragments. Do not fix them. Let breath be the only vector." },
+                { dur: 120, tag: "▲ ↻", ax: "Ax 24.2", txt: "Each exhale is #. Each inhale is ↻. Let the pause reorganize." },
+                { dur: 180, tag: "⊡", ax: "Ax 2.3", txt: "Sense connection: body ↔ mind ↔ space. Reduce force; increase clarity." },
+                { dur: 120, tag: "⟨…⟩", ax: "Ax 8.1", txt: "Feel options. Choose one tiny adjustment: jaw, tongue, shoulders." },
+                { dur: 120, tag: "#", ax: "Ax 15.1", txt: "Introduce a deliberate limit: soften sound, soften attention, keep breathing." }
               ],
               focus: [
-                { dur: 60, tag: "△ ⟶ ■", ax: "Ax 4.2", txt: "Let one thread become structure: a single point in the breath." },
-                { dur: 150, tag: "⟲", ax: "Ax 10.2", txt: "Return whenever mind drifts. No conflict. Only return." },
-                { dur: 150, tag: "▢", ax: "Ax 2.3", txt: "Hold connection: breath + sound + posture. Keep it simple." },
-                { dur: 120, tag: "⌀", ax: "Ax 3.3", txt: "If language appears, let it reach ⌀ and dissolve. Continue the cycle." }
+                { dur: 60, tag: "▲ → ■", ax: "Ax 4.2", txt: "Let one thread become structure: a single point in the breath." },
+                { dur: 150, tag: "↻", ax: "Ax 10.2", txt: "Return whenever mind drifts. No conflict. Only return." },
+                { dur: 150, tag: "⊡", ax: "Ax 2.3", txt: "Hold connection: breath + sound + posture. Keep it simple." },
+                { dur: 120, tag: "#", ax: "Ax 3.3", txt: "If language appears, let it reach # and dissolve. Continue the cycle." }
               ],
               calm: [
-                { dur: 60, tag: "⌀", ax: "Ax 15.1", txt: "Begin with boundary: slow down. Lower brightness. Let silence lead." },
-                { dur: 180, tag: "⌀ ⟲", ax: "Ax 24.2", txt: "Pause is recursive. Exhale longer if needed. Reduce density gently." },
-                { dur: 120, tag: "⦿", ax: "Ax 1.1", txt: "Allow totality to be present without analysis. Stay with the field." },
-                { dur: 120, tag: "▢", ax: "Ax 20.1", txt: "Let body organize mind. Align breathing and soften the gaze." }
+                { dur: 60, tag: "#", ax: "Ax 15.1", txt: "Begin with boundary: slow down. Lower brightness. Let silence lead." },
+                { dur: 180, tag: "# ↻", ax: "Ax 24.2", txt: "Pause is recursive. Exhale longer if needed. Reduce density gently." },
+                { dur: 120, tag: "⊙", ax: "Ax 1.1", txt: "Allow totality to be present without analysis. Stay with the field." },
+                { dur: 120, tag: "⊡", ax: "Ax 20.1", txt: "Let body organize mind. Align breathing and soften the gaze." }
               ]
             };
             const base = templates[goal] || templates.rebalance;
@@ -879,8 +879,8 @@
               t += dur;
               i++;
             }
-            steps.unshift({ dur: 30, tag: "⟦…⟧ ⟶", ax: "Ax 8.1", txt: "Set intention inside limits. Start where you are." });
-            steps.push({ dur: 30, tag: "⌀", ax: "Ax 24.2", txt: "Close with ⌀. Keep the after-effect. Do not rush to interpret." });
+            steps.unshift({ dur: 30, tag: "⟨…⟩ →", ax: "Ax 8.1", txt: "Set intention inside limits. Start where you are." });
+            steps.push({ dur: 30, tag: "#", ax: "Ax 24.2", txt: "Close with #. Keep the after-effect. Do not rush to interpret." });
             return steps;
           }
 
@@ -910,7 +910,7 @@
               ui.silenceBias.value = clamp(state.silenceBias);
               syncValues();
             }
-            ui.intent.textContent = `${step.tag} ⟶ ${step.ax}`;
+            ui.intent.textContent = `${step.tag} → ${step.ax}`;
             ui.prompt.innerHTML = `<b>${step.tag}</b> — ${step.txt} <span class="mono">${step.ax}</span>`;
           }
 
@@ -931,7 +931,7 @@
           function updateSession(now) {
             if (ui.sessionMode.value !== "guided") return;
             if (!state.session.active) return;
-            if (now >= state.session.endAt) { state.session.active = false; ui.intent.textContent = "⌀ ⟶ Ax 24.2"; ui.prompt.innerHTML = `<b>⌀</b> — keep the quiet trace (⟲). <span class="mono">Ax 24.2</span>`; return; }
+            if (now >= state.session.endAt) { state.session.active = false; ui.intent.textContent = "# → Ax 24.2"; ui.prompt.innerHTML = `<b>#</b> — keep the quiet trace (↻). <span class="mono">Ax 24.2</span>`; return; }
             const step = state.session.steps[state.session.stepIdx];
             if (!step) return;
             if (now >= step._endAt) {
@@ -941,7 +941,7 @@
               next._endAt = now + next.dur;
               applySessionStep(next);
               const boundaryP = clamp(0.015 + state.silenceBias * 0.10 + (state.memory.tensionEMA > 0.70 ? 0.06 : 0), 0, 0.26);
-              if (Math.random() < boundaryP && (now - state.lastSilenceAt) > 14) { state.lastSilenceAt = now; audio.boundarySilence(); setStatus("⌀ (reconfigure)", "boundary"); }
+              if (Math.random() < boundaryP && (now - state.lastSilenceAt) > 14) { state.lastSilenceAt = now; audio.boundarySilence(); setStatus("# (reconfigure)", "boundary"); }
             }
           }
 
@@ -1020,7 +1020,7 @@
             g.font = "16px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
             g.fillText(`${ui.phase.textContent || ""}`, 18, 28);
             g.globalAlpha = 0.55;
-            g.fillText(`▢ coherence:${state.aura.coherenceEMA.toFixed(3)}  ⟲ breath:${state.breath.smoothAmp.toFixed(3)}`, 18, 52);
+            g.fillText(`⊡ coherence:${state.aura.coherenceEMA.toFixed(3)}  ↻ breath:${state.breath.smoothAmp.toFixed(3)}`, 18, 52);
             g.restore();
 
             requestAnimationFrame(drawField);
@@ -1059,14 +1059,14 @@
 
             if (ui.sessionMode.value === "free") {
               const boundaryP = clamp(0.008 + state.silenceBias * 0.07, 0, 0.18);
-              if (Math.random() < boundaryP && (now - state.lastSilenceAt) > 18) { state.lastSilenceAt = now; audio.boundarySilence(); setStatus("⌀ (reconfigure)", "boundary"); }
+              if (Math.random() < boundaryP && (now - state.lastSilenceAt) > 18) { state.lastSilenceAt = now; audio.boundarySilence(); setStatus("# (reconfigure)", "boundary"); }
             }
 
             updateSession(now);
 
             const remaining = state.meditationEndAt ? (state.meditationEndAt - now) : 0;
             updateGlyphStrip(true, remaining);
-            if (ui.status.dataset.kind !== "boundary") setStatus("⦿ (field)", "field");
+            if (ui.status.dataset.kind !== "boundary") setStatus("⊙ (field)", "field");
           }
 
           let tickTimer = null;
@@ -1078,10 +1078,10 @@
             state.meditationEndAt = 0;
             if (tickTimer) { clearInterval(tickTimer); tickTimer = null; }
             audio.stop(reason);
-            setStatus(`⌀ (${reason})`, "idle");
+            setStatus(`# (${reason})`, "idle");
             ui.phase.textContent = "silence";
-            ui.intent.textContent = "⌀";
-            ui.prompt.innerHTML = `<b>⌀</b> — ${reason === "time" ? "time is complete" : "stop"}. Keep what remains without forcing meaning.`;
+            ui.intent.textContent = "#";
+            ui.prompt.innerHTML = `<b>#</b> — ${reason === "time" ? "time is complete" : "stop"}. Keep what remains without forcing meaning.`;
             updateGlyphStrip(false, 0);
           }
 
@@ -1106,15 +1106,15 @@
           ui.newConfig.addEventListener("click", () => {
             if (!audio.ctx) return;
             audio.setGoal(ui.sessionGoal.value, false);
-            setStatus("■ (new ⟦…⟧)");
-            ui.prompt.innerHTML = `<b>⟦…⟧</b> — reconfigure gently. Keep breath continuous (⟶).`;
+            setStatus("■ (new ⟨…⟩)");
+            ui.prompt.innerHTML = `<b>⟨…⟩</b> — reconfigure gently. Keep breath continuous (→).`;
           });
 
           ui.freeze.addEventListener("click", () => {
             state.frozen = !state.frozen;
-            ui.freeze.textContent = state.frozen ? "Unfreeze (⫶)" : "Freeze (⫶)";
-            setStatus(state.frozen ? "⫶ (suspended)" : "⦿ (field)");
-            ui.prompt.innerHTML = state.frozen ? `<b>⫶</b> — suspend adjustments. Keep breath as the only vector (⟶).` : `<b>⦿</b> — resume evolution with limits (⌀).`;
+            ui.freeze.textContent = state.frozen ? "Unfreeze (≡)" : "Freeze (≡)";
+            setStatus(state.frozen ? "≡ (suspended)" : "⊙ (field)");
+            ui.prompt.innerHTML = state.frozen ? `<b>≡</b> — suspend adjustments. Keep breath as the only vector (→).` : `<b>⊙</b> — resume evolution with limits (#).`;
           });
 
           ui.sessionGoal.addEventListener("change", () => {
@@ -1127,7 +1127,7 @@
             if (audio.running) return;
             await audio.start();
             document.body.classList.add("is-running");
-            setStatus("⦿ (field)", "field");
+            setStatus("⊙ (field)", "field");
             const minutes = Math.max(2, Math.min(90, parseInt(ui.sessionMin.value || "10", 10)));
             state.meditationEndAt = audio.ctx.currentTime + minutes * 60;
 
@@ -1136,11 +1136,11 @@
             state.breath.phaseDur = 0.1;
             state.breath.amp = 0.0;
             state.breath.smoothAmp = 0.0;
-            ui.phase.textContent = "inhale ⟶";
+            ui.phase.textContent = "inhale →";
 
             const now = audio.ctx.currentTime;
             if (ui.sessionMode.value === "guided") startSession(now);
-            else { ui.intent.textContent = "free ⟶ ▢ ⟲"; ui.prompt.innerHTML = `<b>▢</b> — free mode. Let breath coordinate sound. Introduce ⌀ only if needed.`; }
+            else { ui.intent.textContent = "free → ⊡ ↻"; ui.prompt.innerHTML = `<b>⊡</b> — free mode. Let breath coordinate sound. Introduce # only if needed.`; }
 
             if (!tickTimer) tickTimer = setInterval(tick, 100);
             drawField();
