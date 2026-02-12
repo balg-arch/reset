@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RESET</title>
+
+  <meta name="theme-color" content="#0f0f10" />
+  <link rel="icon" href="favicon-32.png" sizes="32x32" />
+  <link rel="icon" href="favicon-16.png" sizes="16x16" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <style>
+    :root{
+      --bg: #ffffff;
+      --ink: #0f0f10;
+      --accent: #D71921;
+      --grid: rgba(15,15,16,0.06);
+      --dots: rgba(15,15,16,0.08);
+      --shade: rgba(15,15,16,0.05);
+      --vignette: rgba(15,15,16,0.06);
+      --glass: rgba(255,255,255,0.06);
+      --glass-2: rgba(255,255,255,0.03);
+      --stroke: rgba(15,15,16,0.16);
+      --stroke-2: rgba(15,15,16,0.10);
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    body{
+      position: relative;
+      isolation: isolate;
+    }
+
+    body::before{
+      content:"";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 22% 28%, var(--shade), transparent 54%),
+        radial-gradient(circle at 78% 62%, rgba(15,15,16,0.045), transparent 58%),
+        radial-gradient(circle at 50% 50%, transparent 0 60%, rgba(15,15,16,0.03) 78%, var(--vignette) 100%);
+      mix-blend-mode: multiply;
+      opacity: 0.75;
+    }
+
+    body::after{
+      content:"";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        repeating-linear-gradient(0deg, rgba(15,15,16,0.018) 0 1px, transparent 1px 3px),
+        repeating-linear-gradient(90deg, rgba(15,15,16,0.012) 0 1px, transparent 1px 4px);
+      opacity: 0.32;
+      mix-blend-mode: multiply;
+    }
+
+    canvas{
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      background-image:
+        linear-gradient(to right, var(--grid) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid) 1px, transparent 1px),
+        radial-gradient(var(--dots) 1px, transparent 1px),
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0) 0 58%, rgba(15,15,16,0.02) 76%, rgba(15,15,16,0.04) 100%);
+      background-size:
+        72px 72px,
+        72px 72px,
+        24px 24px,
+        100% 100%;
+      background-position:
+        0 0,
+        0 0,
+        0 0,
+        0 0;
+    }
+
+    .transition-overlay{
+      position: fixed;
+      inset: 0;
+      background: #ffffff;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 3;
+      transition: opacity 220ms ease;
+    }
+
+    .brand-button{
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      width: clamp(120px, 18vmin, 200px);
+      height: clamp(120px, 18vmin, 200px);
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      color: var(--ink);
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--glass), var(--glass-2));
+      border: 1px solid var(--stroke);
+      box-shadow:
+        0 18px 44px rgba(15,15,16,0.12),
+        0 1px 0 rgba(255,255,255,0.35) inset;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transform: translateZ(0);
+    }
+
+    .brand-button .mark{
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 78%;
+      height: 78%;
+    }
+
+    .brand-button svg{
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .brand-button .r-fill{
+      fill: var(--ink);
+    }
+
+    .brand-button .r-stroke{
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 10;
+      opacity: 0.85;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="transition-overlay" aria-hidden="true"></div>
+  <canvas id="c"></canvas>
+
+  <a class="brand-button" href="home.html" aria-label="Go to Home">
+    <span class="mark" aria-hidden="true">
+      <svg viewBox="0 0 256 256">
+        <path class="r-stroke" d="M78 196V62h82c28 0 48 18 48 44 0 24-16 40-36 44l40 46" />
+        <path class="r-fill" d="M76 206c-5.523 0-10-4.477-10-10V62c0-5.523 4.477-10 10-10h84c34.242 0 58 22.572 58 54 0 25.635-16.081 43.712-38.353 51.335l39.897 45.751c3.632 4.167 3.198 10.484-.969 14.116-4.167 3.632-10.484 3.198-14.116-.969l-49.89-57.2a10 10 0 0 1 7.535-16.597c22.993-1.749 35-15.629 35-36.436 0-20.865-15.612-34-38-34H86v124c0 5.523-4.477 10-10 10Z" />
+      </svg>
+    </span>
+  </a>
+
+  <script>
+    const canvas = document.getElementById("c");
+    const ctx = canvas.getContext("2d");
+    const ACCENT = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "#D71921";
+    const INK = getComputedStyle(document.documentElement).getPropertyValue("--ink").trim() || "#0f0f10";
+
+    let width = 0;
+    let height = 0;
+
+    function resize() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = width + "px";
+      canvas.style.height = height + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function fadeFrame() {
+      ctx.save();
+      ctx.globalCompositeOperation = "destination-out";
+      ctx.fillStyle = "rgba(0,0,0,0.08)";
+      ctx.fillRect(0, 0, width, height);
+      ctx.restore();
+    }
+
+    function drawFlow(time) {
+      const speed = 40;
+      const travel = width + 240;
+      const x = (time * speed % travel) - 120;
+
+      const baseY = height * 0.38;
+      const breath = Math.sin(time * 1.2) * 10;
+      const y = baseY + breath;
+
+      const radius = 56 + Math.sin(time * 1.2) * 12;
+
+      ctx.save();
+      ctx.globalAlpha = 0.75;
+      ctx.strokeStyle = ACCENT;
+      ctx.lineWidth = 1.8;
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawPulse(time) {
+      const cx = width / 2;
+      const cy = height / 2;
+      const r = Math.min(width, height) * 0.22 + Math.sin(time * 1.2) * 10;
+
+      ctx.save();
+      ctx.globalAlpha = 0.10;
+      ctx.strokeStyle = INK;
+      ctx.lineWidth = 1;
+      ctx.setLineDash([6, 8]);
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+
+      ctx.save();
+      ctx.globalAlpha = 0.14;
+      ctx.strokeStyle = ACCENT;
+      ctx.lineWidth = 1.2;
+      ctx.setLineDash([2, 10]);
+      ctx.beginPath();
+      ctx.arc(cx, cy, r + 18, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function tick(now) {
+      const time = now * 0.001;
+      fadeFrame();
+      drawFlow(time);
+      drawPulse(time);
+      if (!prefersReduced) requestAnimationFrame(tick);
+    }
+
+    resize();
+    window.addEventListener("resize", resize);
+    if (!prefersReduced) requestAnimationFrame(tick);
+  </script>
+</body>
+</html>
